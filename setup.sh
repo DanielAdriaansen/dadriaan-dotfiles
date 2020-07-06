@@ -3,7 +3,7 @@
 printf "Setting up ${HOME} environment\n"
 
 # find location of this running script
-SCRIPT_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null||echo $0))  # https://stackoverflow.com/a/34208365/
+SCRIPT_DIR=$([[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}") # https://stackoverflow.com/a/3572105/11573886
 
 # include utility functions
 . ${SCRIPT_DIR}/script-support.sh
