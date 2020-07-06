@@ -37,9 +37,6 @@ export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
 #export NCARG_ROOT
 #export NCARG_LIB
 
-#========= VIM stuff
-export VIM=${HOME}/.vim
-
 #========= NETCDF stuff
 export NETCDF=/usr/local/netcdf
 
