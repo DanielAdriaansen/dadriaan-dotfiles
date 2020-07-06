@@ -30,9 +30,9 @@ alias cload="conda activate"
 alias clist="conda list"
 
 # LINUX
-alias ll="ls -lh --color=auto"
+alias ll="ls -lh"
 alias shell="echo $SHELL"
-alias la="ls -lha --color=auto"
+alias la="ls -lha"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
