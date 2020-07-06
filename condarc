@@ -1,0 +1,6 @@
+channels:
+ - conda-forge
+ - scitools
+ - defaults
+
+channel_priority: strict
