@@ -26,7 +26,12 @@ done
 check_return_code "Error saving ~/.vim to ~/.vim.${CURRENT_TIMESTAMP}"
 ln -s ${SCRIPT_DIR}vim ~/.vim
 
-printf "\nSetup of ${HOME} completed succesfully\n"
+# Install authorized keys file
+[ ! -f ~/.ssh/authorized_keys ] || mv ~/.ssh/authorized_keys ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}
+check_return_code "Error saving ~/.ssh/authorized_keys to ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}"
+ln -s ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
+
+printf "\nSetup of ${HOME} completed successfully\n"
 
 printf "\nTo use your new environment, run:\n"
 printf ". ~/.bashrc\n"

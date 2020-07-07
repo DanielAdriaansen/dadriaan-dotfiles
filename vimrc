@@ -45,9 +45,9 @@ set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
 set hidden              " Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes) in terminals
+"set mouse=a		" Enable mouse usage (all modes) in terminals
 set history=1000
-set nowrap
+"set nowrap
 set ruler
 set hlsearch
 
