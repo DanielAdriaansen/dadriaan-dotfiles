@@ -99,6 +99,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 else
     # for Mac
+    alias ls='ls -G'
     export CLICOLORS=1
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 fi

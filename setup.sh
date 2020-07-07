@@ -3,6 +3,7 @@
 printf "Setting up ${HOME} environment\n"
 
 # find location of this running script
+# this is where the GitHub repository was cloned to
 SCRIPT_DIR=$([[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}") # https://stackoverflow.com/a/3572105/11573886
 
 # include utility functions
@@ -23,7 +24,7 @@ done
 # Install vim directory
 [ ! -d ~/.vim ] || mv ~/.vim ~/.vim.${CURRENT_TIMESTAMP}
 check_return_code "Error saving ~/.vim to ~/.vim.${CURRENT_TIMESTAMP}"
-ln -s ${SCRIPT_DIR}/vim ~/.vim
+ln -s ${SCRIPT_DIR}vim ~/.vim
 
 printf "\nSetup of ${HOME} completed succesfully\n"
 

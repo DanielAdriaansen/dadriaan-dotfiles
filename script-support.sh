@@ -29,14 +29,14 @@ install_dotfile() {
   # $3 -> SCRIPT_DIR (git repo)
 
   # Debug
-  printf "INSTALLING FILE: $1 at $2\n"
+  printf "LINKING FILE: $1 at ~/.$1\n"
 
   # Save existing file if present
-  [ ! -f ~/.$1 ] || mv ~/.$1 ~/.$1.$2
-  check_return_code "Error saving ~/.$1 to ~/.$1.$2"
+  #[ ! -f ~/.$1 ] || mv ~/.$1 ~/.$1.$2
+  #check_return_code "Error saving ~/.$1 to ~/.$1.$2"
 
   # Link to git repo file
-  ln -s $3/$1 ~/.$1
+  ln -s $3$1 ~/.$1
   check_return_code "Error installing $1 into ~/.$1"
 }
 
