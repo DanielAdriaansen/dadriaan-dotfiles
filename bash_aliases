@@ -22,6 +22,7 @@ alias web="ssh -Y dadriaan@content.rap.ucar.edu"
 alias satdev2="ssh -Y dadriaan@satdev2.rap.ucar.edu"
 alias grebe="ssh -Y dadriaan@grebe.rap.ucar.edu"
 alias mandan="ssh -Y dadriaan@mandan.rap.ucar.edu"
+alias radia="ssh -Y dadriaan@radia.rap.ucar.edu"
 
 # CONDA
 alias cenv="conda info --envs"
