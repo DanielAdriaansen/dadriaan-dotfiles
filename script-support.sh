@@ -35,17 +35,17 @@ install_dotfile() {
   # If there's no file (or link), link the one we want
   # -f returns true if the file exists or if the link exists
   if [ ! -f ~/.$1 ]; then
-    printf "NO $1 FILE PRESENT.\n"
-    #ln -s $3$1 ~/.$1
-    #check_return_code "Error linking $1 into ~/.$1"
+    printf "NO $1 FILE PRESENT. CREATING LINK.\n"
+    ln -s $3$1 ~/.$1
+    check_return_code "Error linking $1 into ~/.$1"
   # Otherwise if there is a file and it's not a link,
   # then save the file off and link in the one we want
   elif [ -f ~/.$1 ] && [ ! -L ~/.$1 ]; then
-    printf "$1 PRESENT BUT NO LINK.\n"
-    #mv ~/.$1 ~/.$1.$2
-    #check_return_code "Error saving ~/.$1 to ~/.$1.$2"
-    #ln -s $3$1 ~/.$1
-    #check_return_code "Error linking $1 into ~/.$1"
+    printf "$1 PRESENT BUT NO LINK. SAVING AND CREATING LINK.\n"
+    mv ~/.$1 ~/.$1.$2
+    check_return_code "Error saving ~/.$1 to ~/.$1.$2"
+    ln -s $3$1 ~/.$1
+    check_return_code "Error linking $1 into ~/.$1"
   # If the link is present, just let the user know
   elif [ -f ~/.$1 ] && [ -L ~/.$1 ]; then
     printf "LINK for ~/.$1 PRESENT.\n"
