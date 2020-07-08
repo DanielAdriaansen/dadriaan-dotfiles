@@ -32,7 +32,7 @@ alias clist="conda list"
 alias cinit="source ~/.condainit"
 
 # GIT
-alias token="ssh -Y dadriaan@cessna.rap.ucar.edu cat ~/.git_token"
+alias token="ssh -Y dadriaan@cessna.rap.ucar.edu 'cat ~/.git_token'"
 
 # LINUX
 alias ll="ls -lh"
