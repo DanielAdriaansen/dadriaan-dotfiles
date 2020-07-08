@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 # Usage:  call this after a shell command if you want to make sure it succeeded, and exit with a message if it failed
 
@@ -27,16 +27,32 @@ install_dotfile() {
   # $1 -> file string
   # $2 -> CURRENT_TIMESTAMP
   # $3 -> SCRIPT_DIR (git repo)
-
+  
   # Debug
   printf "LINKING FILE: $1 at ~/.$1\n"
 
-  # Save existing file if present
-  #[ ! -f ~/.$1 ] || mv ~/.$1 ~/.$1.$2
-  #check_return_code "Error saving ~/.$1 to ~/.$1.$2"
+  # Install requested file
+  # If there's no file (or link), link the one we want
+  # -f returns true if the file exists or if the link exists
+  if [ ! -f ~/.$1 ]; then
+    printf "NO $1 FILE PRESENT.\n"
+    #ln -s $3$1 ~/.$1
+    #check_return_code "Error linking $1 into ~/.$1"
+  # Otherwise if there is a file and it's not a link,
+  # then save the file off and link in the one we want
+  elif [ -f ~/.$1 ] && [ ! -L ~/.$1 ]; then
+    printf "$1 PRESENT BUT NO LINK.\n"
+    #mv ~/.$1 ~/.$1.$2
+    #check_return_code "Error saving ~/.$1 to ~/.$1.$2"
+    #ln -s $3$1 ~/.$1
+    #check_return_code "Error linking $1 into ~/.$1"
+  # If the link is present, just let the user know
+  elif [ -f ~/.$1 ] && [ -L ~/.$1 ]; then
+    printf "LINK for ~/.$1 PRESENT.\n"
+  else
+    printf "EDGE CASE.\n"
+    exit_with_message "UNSURE WHAT TO DO WITH $1"
+  fi
 
-  # Link to git repo file
-  ln -s $3$1 ~/.$1
-  check_return_code "Error installing $1 into ~/.$1"
 }
 
