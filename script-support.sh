@@ -41,7 +41,15 @@ install_dotfile() {
   # Otherwise if there is a file and it's not a link,
   # then save the file off and link in the one we want
   elif [ -f ~/.$1 ] && [ ! -L ~/.$1 ]; then
-    printf "$1 PRESENT BUT NO LINK. SAVING AND CREATING LINK.\n"
+    printf "$1 PRESENT (FILE) BUT NO LINK. SAVING AND CREATING LINK.\n"
+    mv ~/.$1 ~/.$1.$2
+    check_return_code "Error saving ~/.$1 to ~/.$1.$2"
+    ln -s $3$1 ~/.$1
+    check_return_code "Error linking $1 into ~/.$1"
+  # Otherwise if there is a directory present and it's not a link,
+  # then save the directory off and link in what we want
+  elif [ -d ~/.$1 ] && [ ! -L ~/.$1 ]; then
+    printf "$1 PRESENT (DIR) BUT NO LINK. SAVING AND CREATING LINK.\n"
     mv ~/.$1 ~/.$1.$2
     check_return_code "Error saving ~/.$1 to ~/.$1.$2"
     ln -s $3$1 ~/.$1

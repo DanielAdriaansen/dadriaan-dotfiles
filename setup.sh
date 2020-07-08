@@ -13,7 +13,7 @@ SCRIPT_DIR=$([[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}") # https://stacko
 CURRENT_TIMESTAMP=$(date +%F_%T)
 
 # List of desired files
-my_files=("bashrc " "bash_profile" "bash_functions" "bash_aliases" "vimrc" "condarc" "tmux.conf" "conda")
+my_files=("bashrc " "bash_profile" "bash_functions" "bash_aliases" "vimrc" "condarc" "tmux.conf" "condainit")
 
 # Install desired files using symlinks to the git repo
 # git repo location is stored as ${SCRIPT_DIR}
@@ -33,6 +33,14 @@ if [ ! -d ~/.vim ]; then
 # then save the directory off and link in the one we want
 elif [ -d ~/.vim ] && [ ! -L ~/.vim ]; then
   printf "DIRECTORY PRESENT BUT NO LINK. SAVING AND CREATING LINK.\n"
+  mv ~/.vim ~/.vim.${CURRENT_TIMESTAMP}
+  check_return_code "Error saving ~/.vim to ~/.vim.${CURRENT_TIMESTAMP}"
+  ln -s ${SCRIPT_DIR}vim ~/.vim
+  check_return_code "Error linking ${SCRIPT_DIR}vim into ~/.vim"
+# Otherwise if there is a file present and it's not a link,
+# then save the file off and link in what we want
+elif [ -f ~/.vim ] && [ ! -L ~/.vim ]; then
+  printf "$1 PRESENT (FILE) BUT NO LINK. SAVING AND CREATING LINK.\n"
   mv ~/.vim ~/.vim.${CURRENT_TIMESTAMP}
   check_return_code "Error saving ~/.vim to ~/.vim.${CURRENT_TIMESTAMP}"
   ln -s ${SCRIPT_DIR}vim ~/.vim
@@ -57,6 +65,14 @@ if [ ! -f ~/.ssh/authorized_keys ]; then
 # then save the file off and link in the one we want
 elif [ -f ~/.ssh/authorized_keys ] && [ ! -L ~/.ssh/authorized_keys ]; then
   printf "KEYS FILE PRESENT BUT NO LINK. SAVING AND CREATING LINK.\n"
+  mv ~/.ssh/authorized_keys ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}
+  check_return_code "Error saving ~/.ssh/authorized_keys to ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}"
+  ln -s ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
+  check_return_code "Error linking ${SCRIPT_DIR}authorized_keys into ~/.ssh/authorized_keys"
+# Otherwise if there is a directory present and it's not a link,
+# then save the directory off and link in what we want
+elif [ -d ~/.ssh/authorized_keys ] && [ ! -L ~/.ssh/authorized_keys ]; then
+  printf "$1 PRESENT (DIR) BUT NO LINK. SAVING AND CREATING LINK.\n"
   mv ~/.ssh/authorized_keys ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}
   check_return_code "Error saving ~/.ssh/authorized_keys to ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}"
   ln -s ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
