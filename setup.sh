@@ -53,33 +53,24 @@ else
   exit_with_message "UNSURE WHAT TO DO WITH vim"
 fi
 
-printf "LINKING FILE: ~/.ssh/authorized_keys\n"
+printf "INSTALLING FILE: ~/.ssh/authorized_keys\n"
 # Install authorized keys file
-# If there's no keys file (or link), link the one we want
+# If there's no keys file (or link), install the one we want
 # -f returns true if the keys file exists or if the link exists
 if [ ! -f ~/.ssh/authorized_keys ]; then
-  printf "NO AUTHORIZED KEYS PRESENT. CREATING LINK.\n"
-  ln -s ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
-  check_return_code "Error linking ${SCRIPT_DIR}authorized_keys into ~/.ssh/authorized_keys"
+  printf "NO AUTHORIZED KEYS PRESENT. COPYING FILE.\n"
+  #ln -s ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
+  cp ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
+  check_return_code "Error installing ${SCRIPT_DIR}authorized_keys into ~/.ssh/authorized_keys"
 # Otherwise if there is a file and it's not a link,
-# then save the file off and link in the one we want
+# then save the file off and copy in the one we want
 elif [ -f ~/.ssh/authorized_keys ] && [ ! -L ~/.ssh/authorized_keys ]; then
-  printf "KEYS FILE PRESENT BUT NO LINK. SAVING AND CREATING LINK.\n"
+  printf "KEYS FILE PRESENT BUT NO LINK. SAVING AND COPYING FILE.\n"
   mv ~/.ssh/authorized_keys ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}
   check_return_code "Error saving ~/.ssh/authorized_keys to ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}"
-  ln -s ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
-  check_return_code "Error linking ${SCRIPT_DIR}authorized_keys into ~/.ssh/authorized_keys"
-# Otherwise if there is a directory present and it's not a link,
-# then save the directory off and link in what we want
-elif [ -d ~/.ssh/authorized_keys ] && [ ! -L ~/.ssh/authorized_keys ]; then
-  printf "$1 PRESENT (DIR) BUT NO LINK. SAVING AND CREATING LINK.\n"
-  mv ~/.ssh/authorized_keys ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}
-  check_return_code "Error saving ~/.ssh/authorized_keys to ~/.ssh/authorized_keys.${CURRENT_TIMESTAMP}"
-  ln -s ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
-  check_return_code "Error linking ${SCRIPT_DIR}authorized_keys into ~/.ssh/authorized_keys"
-# If the link is present, just let the user know
-elif [ -f ~/.ssh/authorized_keys ] && [ -L ~/.ssh/authorized_keys ]; then
-  printf "LINK for ~/.ssh/authorized_keys PRESENT.\n"
+  #ln -s ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
+  cp ${SCRIPT_DIR}authorized_keys ~/.ssh/authorized_keys
+  check_return_code "Error installing ${SCRIPT_DIR}authorized_keys into ~/.ssh/authorized_keys"
 else
   printf "EDGE CASE.\n"
   exit_with_message "UNSURE WHAT TO DO WITH authorized_keys"
