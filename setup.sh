@@ -13,7 +13,7 @@ SCRIPT_DIR=$([[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}") # https://stacko
 CURRENT_TIMESTAMP=$(date +%F_%T)
 
 # List of desired files
-my_files=("bashrc " "bash_profile" "bash_functions" "bash_aliases" "vimrc" "condarc" "tmux.conf")
+my_files=("bashrc " "bash_profile" "bash_functions" "bash_aliases" "vimrc" "condarc" "tmux.conf" "conda")
 
 # Install desired files using symlinks to the git repo
 # git repo location is stored as ${SCRIPT_DIR}

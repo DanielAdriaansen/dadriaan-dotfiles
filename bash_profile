@@ -31,6 +31,7 @@ export PATH=/rap/bin${PATH:+:$PATH}
 
 #========= PYTHON stuff
 export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
+export CONDA_INSTALL=~/anaconda
 
 #========= NCL stuff
 #export NCARG_COLORMAPS
