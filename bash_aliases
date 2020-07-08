@@ -29,7 +29,7 @@ alias cenv="conda info --envs"
 alias cend="conda deactivate"
 alias cload="conda activate"
 alias clist="conda list"
-alias cinit="source ~/.conda"
+alias cinit="source ~/.condainit"
 
 # GIT
 alias token="ssh -Y dadriaan@cessna.rap.ucar.edu cat ~/.git_token"
