@@ -137,3 +137,6 @@ fi
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
+
+# adjust autocomplete to work under cvs
+cvs_autocomplete
