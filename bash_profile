@@ -27,7 +27,7 @@
 export CVSROOT=:pserver:dadriaan@cvs.rap.ucar.edu:/cvs
 
 #========= PATH stuff
-export PATH=/rap/bin${PATH:+:$PATH}
+export PATH=/rap/bin:/usr/local/anaconda3/bin${PATH:+:$PATH}
 
 #========= PYTHON stuff
 export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
