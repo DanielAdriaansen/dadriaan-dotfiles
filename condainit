@@ -1,5 +1,6 @@
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
+echo INITIALIZING CONDA at ${CONDA_INSTALL}
 __conda_setup="$('$CONDA_INSTALL/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
