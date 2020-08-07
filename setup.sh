@@ -24,7 +24,7 @@ done
 # Make a git config directory if there isn't one
 if [ ! -d ~/.config/git ]; then
   printf "MAKING GIT CONFIG DIRECTORY.\n"
-  mkdir ~/.config/git
+  mkdir -p ~/.config/git
 fi
 # Install git config file
 printf "INSTALLING ~/.config/git/config\n"
