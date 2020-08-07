@@ -35,6 +35,7 @@ alias cinit="source ~/.condainit"
 
 # GIT
 alias token="ssh -Y dadriaan@cessna.rap.ucar.edu 'cat ~/.git_token'"
+alias ginfo="git config -l"
 
 # LINUX
 alias ll="ls -lh"
@@ -51,3 +52,4 @@ alias vim="vim -X"
 alias jazz="java -verbose -jar /home/dadriaan/projects/JAZZ/jazz/jazz.jar /home/dadriaan/projects/JAZZ/jazz/"
 alias grep="grep -i"
 alias check="cvs -n update"
+alias ftp="ftp -i"
