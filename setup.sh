@@ -21,6 +21,35 @@ for f in ${my_files[@]}; do
   install_dotfile ${f} ${CURRENT_TIMESTAMP} ${SCRIPT_DIR}
 done
 
+# Make a git config directory if there isn't one
+if [ ! -d ~/.config/git ]; then
+  printf "MAKING GIT CONFIG DIRECTORY.\n"
+  mkdir ~/.config/git
+fi
+# Install git config file
+printf "INSTALLING ~/.config/git/config\n"
+# If there's no git/config file (or link), link in the one we want
+# -f returns true if the config file exists or if the link exists
+if [ ! -f ~/.config/git/config ]; then
+  printf "NO GIT CONFIG FILE PRESENT. CREATING LINK.\n"
+  ln -s ${SCRIPT_DIR}gitconfig ~/.config/git/config
+  check_return_code "Error linking ${SCRIPT_DIR}gitconfig into ~/.config/git/config"
+# Otherwise if there is a file and it's not a link,
+# then save the file off and link the one we want
+elif [ -f ~/.config/git/config ]; then
+  printf "GIT CONFIG FILE PRESENT BUT NO LINK. SAVING AND CREATING LINK.\n"
+  mv ~/.config/git/config ~/.config/git/config.${CURRENT_TIMESTAMP}
+  check_return_code "Error saving ~/.config/git/config to ~/.config/git/config.${CURRENT_TIMESTAMP}"
+  ln -s ${SCRIPT_DIR}gitconfig ~/.config/git/config
+  check_return_code "Error linking ${SCRIPT_DIR}gitconfig to ~/.config/git/config"
+# If the link is present, just let the user know
+elif [ -f ~/.config/git/config ]; then
+  printf "LINK for ~/.config/git/config PRESENT.\n"
+else
+  printf "EDGE CASE.\n"
+  exit_with_message "UNSURE WHAT TO DO WITH gitconfig"
+fi
+
 # Install vim directory
 printf "LINKING DIR: ~/.vim\n"
 # If there's no vim directory (or link), link in the one we want
