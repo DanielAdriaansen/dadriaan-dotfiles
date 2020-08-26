@@ -48,6 +48,8 @@ export DS_COMM_TIMEOUT_MSECS=100000
 export HOST_OS=LINUX_CX11
 export GCC_WARNINGS=-Wall
 #export LD_LIBRARY_PATH=/usr/local/gcc/lib:/usr/local/netcdf/lib
+export GIT_BUILD=/home/dadriaan/git/dotfiles/git_build
+export CVS_BUILD=/home/dadriaan/git/dotfiles/cvs_build
 
 export RALCVS=${HOME}/cvs
 export INSTALL=${HOME}/exec
