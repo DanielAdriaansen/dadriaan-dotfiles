@@ -52,15 +52,15 @@ export GIT_BUILD=/home/dadriaan/git/dotfiles/git_build
 export CVS_BUILD=/home/dadriaan/git/dotfiles/cvs_build
 
 export RALCVS=${HOME}/cvs
-export INSTALL=${HOME}/exec
+export ICE_BUILD=${HOME}/build
 
 export RAP_MAKE_INC_DIR=${RALCVS}/make_include
 export RAP_MAKE_BIN_DIR=${RALCVS}/make_bin
 
 #--------- Look at these first
-export RAP_INC_DIR=${INSTALL}/include
-export RAP_LIB_DIR=${INSTALL}/lib
-export RAP_BIN_DIR=${INSTALL}/bin
+export RAP_INC_DIR=${ICE_BUILD}/cvs/include
+export RAP_LIB_DIR=${ICE_BUILD}/cvs/lib
+export RAP_BIN_DIR=${ICE_BUILD}/cvs/bin
 
 #--------- Then look at these
 export RAP_SHARED_INC_DIR=/rap/include
