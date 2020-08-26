@@ -1,3 +1,3 @@
-export RAP_LIB_DIR=$ICE_BUILD/git/$GIT_BRANCH/bin
+export RAP_LIB_DIR=$ICE_BUILD/git/$GIT_BRANCH/lib
 export RAP_BIN_DIR=$ICE_BUILD/git/$GIT_BRANCH/bin
 export RAP_INC_DIR=$ICE_BUILD/git/$GIT_BRANCH/include
