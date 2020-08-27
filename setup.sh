@@ -105,6 +105,9 @@ else
   exit_with_message "UNSURE WHAT TO DO WITH authorized_keys"
 fi
 
+printf "\nSetting file permissions"
+chmod g+rx ~ ~/.config ~/.config/git ~/.config/git/config ~/.bashrc
+
 printf "\nSetup of ${HOME} completed successfully\n"
 
 printf "\nTo use your new environment, run:\n"
