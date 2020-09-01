@@ -1,8 +1,8 @@
 # This is Git's per-user configuration file
 [user]
 # Please adapt and uncomment the following lines:
-#       name = Daniel Adriaansen
-        email = daniel.adriaansen@gmail.com
+        name = Daniel Adriaansen
+        email = dadriaan@ucar.edu
 #[credential]
 #        helper = cache
 #        helper = cache --timeout 86400
