@@ -12,3 +12,22 @@ function setbranch () { export GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` "$@"
 
 # function for setting git repository name
 function setrepo () { export REPONAME=`basename \`git rev-parse --show-toplevel\`` "$@"; }
+
+# Usage: helper functions to smartly add to path
+# Example: PATH=$(path_append $PATH /my/bin)
+
+path_append() {
+    if [ -d "$2" ] && [[ ":$1:" != *":$2:"* ]]; then
+        echo "${1:+"$1:"}$2"
+    else
+        echo "$1"
+    fi
+}
+
+path_prepend() {
+    if [ -d "$2" ] && [[ ":$1:" != *":$2:"* ]]; then
+        echo "$2${1:+":$1"}"
+    else
+        echo "$1"
+    fi
+}
