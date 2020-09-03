@@ -9,3 +9,6 @@ function cvs_autocomplete { complete -o default -F _cvs cvs "$@"; }
 
 # function for setting git branch
 function setbranch () { export GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` "$@"; }
+
+# function for setting git repository name
+function setrepo () { export REPONAME=`basename \`git rev-parse --show-toplevel\`` "$@"; }
