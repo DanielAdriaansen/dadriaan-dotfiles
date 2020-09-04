@@ -1,4 +1,4 @@
-CMD='cd ~/git/dotfiles; git pull origin master'
+CMD='cd ~/git/dadriaan-dotfiles; git pull origin master'
 
 function update_host() {
 
