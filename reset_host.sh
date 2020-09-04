@@ -1,0 +1,11 @@
+unlink ~/.bash_aliases
+unlink ~/.bashrc
+unlink ~/.bash_profile
+unlink ~/.bash_functions
+unlink ~/.condainit
+unlink ~/.condarc
+unlink ~/.vim
+unlink ~/.vimrc
+unlink ~/.tmux.conf
+unlink ~/.config/git/config
+unlink ~/.ssh/authorized_keys
