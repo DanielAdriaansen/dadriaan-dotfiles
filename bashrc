@@ -133,6 +133,53 @@ fi
 
 ############ User additions
 
+########## SET UP ENVIRONMENT VARS
+
+#========= CVS stuff
+export CVSROOT=:pserver:dadriaan@cvs.rap.ucar.edu:/cvs
+
+#========= PATH stuff
+export PATH=/rap/bin:/usr/local/anaconda3/bin${PATH:+:$PATH}
+export LOGIN_PATH=${PATH}
+
+#========= PYTHON stuff
+export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
+export CONDA_INSTALL=~/anaconda
+
+#========= NCL stuff
+#export NCARG_COLORMAPS
+#export NCARG_ROOT
+#export NCARG_LIB
+
+#========= NETCDF stuff
+export NETCDF=/usr/local/netcdf
+
+#========= DS stuff
+export DS_COMM_TIMEOUT_MSECS=100000
+
+#========= MAKE stuff
+export HOST_OS=LINUX_CX11
+export GCC_WARNINGS=-Wall
+#export LD_LIBRARY_PATH=/usr/local/gcc/lib:/usr/local/netcdf/lib
+export GIT_BUILD=/home/dadriaan/git/dotfiles/git_build
+export CVS_BUILD=/home/dadriaan/git/dotfiles/cvs_build
+
+export RALCVS=${HOME}/cvs
+export ICE_BUILD=${HOME}/build
+
+export RAP_MAKE_INC_DIR=${RALCVS}/make_include
+export RAP_MAKE_BIN_DIR=${RALCVS}/make_bin
+
+#--------- Look at these first
+export RAP_INC_DIR=${ICE_BUILD}/cvs/include
+export RAP_LIB_DIR=${ICE_BUILD}/cvs/lib
+export RAP_BIN_DIR=${ICE_BUILD}/cvs/bin
+
+#--------- Then look at these
+export RAP_SHARED_INC_DIR=/rap/include
+export RAP_SHARED_LIB_DIR=/rap/lib
+export RAP_SHARED_BIN_DIR=/rap/bin
+
 # bring in bash functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
