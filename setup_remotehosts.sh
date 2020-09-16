@@ -1,4 +1,4 @@
-CMD='cd /home/dadriaan/git/dotfiles; /home/dadriaan/git/dotfiles/setup.sh'
+CMD='cd /home/dadriaan/git/dadriaan-dotfiles; /home/dadriaan/git/dadriaan-dotfiles/setup.sh'
 
 function setup_host() {
 
