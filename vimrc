@@ -59,7 +59,7 @@ endif
 
 " Stuff for NCL
 au BufRead,BufNewFile *.ncl set filetype=ncl
-au! Syntax newlang source /home/dadriaan/.vim/syntax/ncl.vim 
+au! Syntax ncl source /home/dadriaan/.vim/syntax/ncl.vim 
 
 " Stuff for bash files
 au BufRead,BufNewFile bash* set filetype=sh
