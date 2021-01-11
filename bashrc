@@ -144,6 +144,7 @@ export LOGIN_PATH=${PATH}
 
 #========= PYTHON stuff
 export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
+export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/dadriaan-icing-vx
 export CONDA_INSTALL=~/anaconda
 
 #========= NCL stuff
