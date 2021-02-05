@@ -25,6 +25,7 @@ alias mandan="ssh -Y dadriaan@mandan.rap.ucar.edu"
 alias radia="ssh -Y dadriaan@radia.rap.ucar.edu"
 alias cheyenne="ssh -Y dadriaan@cheyenne.ucar.edu"
 alias camp="ssh -Y dadriaan@data-access.ucar.edu"
+alias bowie="ssh -Y dadriaan@bowie.rap.ucar.edu"
 
 # CONDA
 alias cenv="conda info --envs"
