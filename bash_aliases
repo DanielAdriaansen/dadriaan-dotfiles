@@ -38,6 +38,7 @@ alias cinit="source ~/.condainit"
 alias token="ssh -Y dadriaan@cessna.rap.ucar.edu 'cat ~/.git_token'"
 alias ginfo="git config -l"
 alias change="git status --untracked-files=no"
+alias subup="git submodule update --remote"
 
 # LINUX
 alias ll="ls -lh"

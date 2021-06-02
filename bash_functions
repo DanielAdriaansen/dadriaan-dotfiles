@@ -13,6 +13,9 @@ function setbranch () { export GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` "$@"
 # function for setting git repository name
 function setrepo () { export REPONAME=`basename \`git rev-parse --show-toplevel\`` "$@"; }
 
+# function for cloning a repo
+function clone () { git clone git@github.com:"$@"; }
+
 # Usage: helper functions to smartly add to path
 # Example: PATH=$(path_append $PATH /my/bin)
 
