@@ -56,3 +56,10 @@ alias jazz="java -verbose -jar /home/dadriaan/projects/JAZZ/jazz/jazz.jar /home/
 alias grep="grep -i"
 alias check="cvs -n update"
 alias ftp="ftp -i"
+
+# TAR
+alias sfcwild="echo 'tar -xvf <file> --wildcards --no-anchored *METAR*'"
+alias satwild="echo 'tar -xvf <file> --wildcards --no-anchored *C02*'"
+alias mrmsarch="echo '/glade/u/home/dadriaan/campaign/ral/aap/icing/radar/mrms-conus/202102/*20210215*'"
+alias goesarch="echo '/glade/u/home/dadriaan/campaign/eol/archive/operational/satellite/goes/g16/2021/day046/*conus*'"
+alias hrrrarch="echo '/glade/u/home/dadriaan/campaign/ral/nral0003/grib/HRRR-wrfnat/20210215/*f003*'"
