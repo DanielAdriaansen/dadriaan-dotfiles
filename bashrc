@@ -139,8 +139,11 @@ fi
 #========= CVS stuff
 export CVSROOT=:pserver:dadriaan@cvs.rap.ucar.edu:/cvs
 
+#========= JAVA stuff
+export JAVA_HOME=/usr/local/jdk11
+
 #========= PATH stuff
-export PATH=/rap/bin:/usr/local/anaconda3/bin${PATH:+:$PATH}
+export PATH=/rap/bin:/usr/local/anaconda3/bin:${JAVA_HOME}/bin${PATH:+:$PATH}
 export LOGIN_PATH=${PATH}
 
 #========= PYTHON stuff
